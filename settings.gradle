@@ -1,0 +1,3 @@
+rootProject.name = 'AOP-Demo'
+
+include 'modules:people-module'
