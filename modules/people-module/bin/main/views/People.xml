@@ -4,18 +4,37 @@
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 	
 	<grid model="com.axelor.people.db.People" title="Peoples" name="people-grid">
+		<field name="refrence"/>
 		<field name="peopleName"/>
 		<field name="mobile"/>
 		<field name="bankBalance"/>
 		<field name="bankName"/>
+		<field name="password"/>
+		<field name="haveHouse"/>
+		<field name="dateOfBirth"/>
+		<field name="timeOfEntry"/>
+		<field name="dateTimeDemo"/>
+		<field name="image"/>
+		<field name="rateMyForm"/> 
+		<field name="clothsList" />
 	</grid>
 	
 	<form model="com.axelor.people.db.People" title="People" name="people-form">
 		<panel>
+			<field name="refrence"/>
 			<field name="peopleName"/>
 			<field name="mobile"/>
 			<field name="bankBalance"/>
 			<field name="bankName"/>
+			<field name="password"/>
+			<field name="haveHouse"/>
+			<field name="dateOfBirth"/>
+			<field name="timeOfEntry"/>
+			<field name="dateTimeDemo"/>
+			<field name="image"/>
+			<panel-related field="clothsList" />
+			<field name="rateMyForm"/>
+			
 		</panel>
 	</form>
 

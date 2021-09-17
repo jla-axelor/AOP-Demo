@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+
+		 <module name="people" package="com.axelor.people.db"/>
+		<entity name="Mobile" lang="java" table="Mobile_Table" >
+			<string name="jsonDetails" json="true"/>
+			<string name="readOnlyTest" title="Read Only Test Field" readonly="true" transient="true" />
+			<string name="mobilePnoneName" column="Mobile_Pnone_Name" title="Mobile Phone Name" default="Don't have mobile" required="true"/>
+			<string name="massUpdateDemo" title="Mass Update Demo Field" massUpdate="true" />
+			<string name="multipleDemo" title="Multiline Demo" multiline="true" ></string>
+			<many-to-one ref="com.axelor.meta.db.MetaFile" name="image" title="Image" />
+			
+		</entity>
+
+</domain-models>

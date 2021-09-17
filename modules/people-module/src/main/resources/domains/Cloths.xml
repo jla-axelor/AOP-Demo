@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+		
+		<module name="people" package="com.axelor.people.db"/>
+		<enum name="TYPE">
+			<item name="OLD" value="old"/>
+			<item name="NEW" value="new"/>
+		</enum>
+		<entity name="Cloths" lang="java" table="Cloths">
+			<string name="clothName" title="Cloth Name" namecolumn="true" />
+			<enum name="type" ref="TYPE" />
+			<many-to-one ref="com.axelor.people.db.People" name="people" title="People" />
+		</entity>
+
+</domain-models>

@@ -3,12 +3,24 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 	
-	<menuitem title="People root" name="people-root"/>
+	<menuitem title="Demo Menu" name="people-root"/>
 	
 	<menuitem title="People" name="people-root-people" parent="people-root" action="action.people.root.people"/>
 	<action-view name="action.people.root.people" title="People" model="com.axelor.people.db.People" >
 		<view type="grid" name="people-grid" />
 		<view type="form" name="people-form" />
+	</action-view>
+	
+	  <menuitem title="Mobile Phone" name="people-root-mobile" parent="people-root" action="action.people.root.mobile" />
+	<action-view name="action.people.root.mobile" title="Mobile Phone" model="com.axelor.people.db.Mobile">
+		<view type="grid" name="mobile_grid" />
+		<view type="form" name="mobile_form" />
+	</action-view> 
+	
+	<menuitem title="Cloths" name="people-root-cloths" parent="people-root" action="action.people.root.cloths" />
+	<action-view name="action.people.root.cloths" title="Cloths" model="com.axelor.people.db.Cloths" >
+		<view type="grid" name="cloths_grid" />
+		<view type="form" name="cloths_form" />
 	</action-view>
 	
 </object-views>
