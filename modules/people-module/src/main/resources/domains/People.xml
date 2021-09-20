@@ -24,7 +24,7 @@
 		 	 <datetime name="dateTimeDemo" title="Date and Time demo" tz="true" transient="true" />
 		 	 <enum name="rateMyForm" ref="RATING" />
 		 	 <binary name="image" title="Image" />
-		 	 <one-to-many ref="com.axelor.people.db.Cloths" name="clothsList" title="Cloths" mappedBy="people" />
+		 	 <one-to-many ref="com.axelor.people.db.Cloths" name="clothsList" title="Cloths" mappedBy="people" initParam="true" />
 		 </entity>
 
 </domain-models>

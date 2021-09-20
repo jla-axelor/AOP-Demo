@@ -4,13 +4,11 @@
 		xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
 		
 		<module name="people" package="com.axelor.people.db"/>
-		<enum name="TYPE">
-			<item name="OLD" value="old"/>
-			<item name="NEW" value="new"/>
-		</enum>
+		
 		<entity name="Cloths" lang="java" table="Cloths">
-			<string name="clothName" title="Cloth Name" namecolumn="true" />
-			<enum name="type" ref="TYPE" />
+			<string name="name" title="Cloth Name" />
+			<string name="type" selection="people.cloths.type" />
+			<integer name="cprice" title="Cloths Price" ></integer>
 			<many-to-one ref="com.axelor.people.db.People" name="people" title="People" />
 		</entity>
 

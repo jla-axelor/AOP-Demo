@@ -3,15 +3,32 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 	
-	<grid model="com.axelor.people.db.Cloths" title="Cloths" name="cloths_grid">
-		<field name="clothName" />
+	<grid model="com.axelor.people.db.Cloths" title="Cloths" name="cloths_grid"  orderBy="-cprice" groupBy="people">
+		<toolbar>
+			<button onClick="click" prompt="Are you sure ? (from toolbar)" name="clickBtn" title="click Here" icon="fa-print" />
+		</toolbar> 
+		<menubar>
+			<menu title="Menu1">
+				<item action="action1" title="test1"/>
+				<item action="action11" title="test11"/>
+			</menu>
+			<menu title="Menu2">
+				<item action="action2" title="test2"/>
+			</menu>
+		</menubar>
+		<hilite if="people != null" color="success" />
+		<hilite if="people == null" color="danger" />
+		<field name="name" />
 		<field name="type" />
+		<field name="cprice" aggregate="sum" />
 		<field name="people" />
+		<button onClick="click" prompt="Are you sure ?"  name="clickBtn" title="click Here" icon="fa-print" />
 		
 	</grid>
 	<form model="com.axelor.people.db.Cloths" title="Cloths" name="cloths_form">
-		<field name="clothName" />
+		<field name="name" />
 		<field name="type" />
+		<field name="cprice" />
 		<field name="people" />
 	</form>
 

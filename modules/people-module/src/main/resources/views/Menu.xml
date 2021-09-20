@@ -21,6 +21,8 @@
 	<action-view name="action.people.root.cloths" title="Cloths" model="com.axelor.people.db.Cloths" >
 		<view type="grid" name="cloths_grid" />
 		<view type="form" name="cloths_form" />
+		<!-- it will filter all without people cloths -->
+		<!--	<domain>self.people != null</domain>  -->
 	</action-view>
 	
 </object-views>
