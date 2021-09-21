@@ -6,7 +6,6 @@
 	<grid model="com.axelor.people.db.Mobile" title="Mobile Phones" name="mobile_grid">
 		<field name="fullName" />
 		<field name="image" />
-		<field name="random" />
 		
 	</grid>
 	<form model="com.axelor.people.db.Mobile" title="Mobile Phone" name="mobile_form" onSave="action-people-monile-onsave" canAttach="false">

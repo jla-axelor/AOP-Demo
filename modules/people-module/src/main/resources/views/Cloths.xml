@@ -33,7 +33,7 @@
 	</form>
 	<!-- not done any action yet -->
 	<action-validate name="action-mobile-validate-onload" >
-		<notify message="This is new cloths" if = "type == 'NEW'"/>
+		<notify message="This is new cloths" if = "type == 'new'"/>
 	</action-validate>
 
 </object-views>

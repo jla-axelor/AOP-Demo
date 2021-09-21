@@ -25,21 +25,27 @@
 		</field>
 	</grid>
 	
-	<form model="com.axelor.people.db.People" title="People" name="people-form" readonlyIf="id" onNew="action-people-record-onnew" width="large" >
-		<panel>
-			<field name="refrence"/>
-			<field name="peopleName"/>
-			<field name="mobile"/>
-			<field name="bankBalance"/>
-			<field name="bankName"/>
-			<field name="password"/>
-			<field name="haveHouse"/>
-			<field name="dateOfBirth"/>
-			<field name="timeOfEntry"/>
-			<field name="dateTimeDemo"/>
-			<field name="image"/>
-			<panel-related field="clothsList" />
-			<field name="rateMyForm"/>
+	<form model="com.axelor.people.db.People" title="People" name="people-form"  onNew="action-people-record-onnew" width="large" >
+		<panel name="mianPanel">
+			<panel name="innerPanel1" title="Inner Panel 1" colSpan="8" >
+				<field name="refrence" colSpan="12"/>
+				<field name="peopleName"/>
+				<field name="mobile"/>
+				<field name="bankBalance"/>
+				<field name="bankName"/>
+				<field name="password"/>
+				<field name="haveHouse"/>
+			</panel>
+			<!-- if we want to use <= in xml them we can use like " &li;= " -->
+	  <!--  <panel name="innerPanel2" title="Inner Panel 2" colSpan="4" itemSpan="12" hideIf="haveHouse == false"> -->
+			<panel name="innerPanel2" title="Inner Panel 2" colSpan="4" itemSpan="12" showIf="haveHouse == false" showFrame="true" showTitle="true" >
+				<field name="dateOfBirth"/>
+				<field name="timeOfEntry"/>
+				<field name="dateTimeDemo"/>
+				<field name="image"/>
+				<panel-related field="clothsList" />
+				<field name="rateMyForm" showTitle="false" widget="NavSelect"/>
+			</panel>
 		</panel>
 	</form>
 	<action-record name="action-people-record-onnew" model="com.axelor.people.db.People">

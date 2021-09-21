@@ -5,7 +5,7 @@
 		
 		<module name="people" package="com.axelor.people.db"/>
 		
-		<entity name="Cloths" lang="java" table="Cloths"  > 
+		<entity name="Cloths" lang="java" table="Cloths">
 			<string name="name" title="Cloth Name" />
 			<string name="type" selection="people.cloths.type" />
 			<integer name="cprice" title="Cloths Price" ></integer>
