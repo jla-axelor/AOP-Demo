@@ -40,6 +40,15 @@
 		<field name="name" />
 		<field name="type" />
 		<field name="cprice" />
+		<field name="people" />
 	</form>
+	<grid model="com.axelor.people.db.Cloths" title="People Cloths Grid" name="people_cloths_grid">
+		<hilite if="people != null" color="success" />
+		<hilite if="people == null" color="danger" />
+		<field name="name" />
+		<field name="type" />
+		<field name="cprice" />  
+		<field name="people" hidden="true" />
+	</grid>
 	
 </object-views>

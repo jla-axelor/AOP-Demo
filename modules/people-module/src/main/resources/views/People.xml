@@ -56,10 +56,11 @@
 		canCollapse="true" collapseIf="true"	>
 		<!-- stacked="true" is same as itemSpan="12" -->
 			<field name="image"/>
-			<panel-related field="clothsList" form-view="people_cloths_form" >
-				<field name="name" />
+			<panel-related field="clothsList" form-view="people_cloths_form" grid-view="people_cloths_grid" canNew="true" canEdit="true" canRemove="true" canSuggest="true" showFrame="true" >
+				
+				<!-- <field name="name" />
 				<field name="type" />
-				<field name="cprice" /> 
+				<field name="cprice" />  --> 
 			</panel-related>
 			<field name="rateMyForm" showTitle="false" widget="NavSelect"/>
 		</panel>
