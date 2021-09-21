@@ -21,7 +21,7 @@
 		<field name="name" />
 		<field name="type" />
 		<field name="cprice" aggregate="sum" />
-		<field name="people" hideIf="$popup()" />
+		<field name="people"  />
 		<button onClick="click" prompt="Are you sure ?"  name="clickBtn" title="click Here" icon="fa-print" />
 		
 	</grid>
@@ -29,7 +29,7 @@
 		<field name="name" />
 		<field name="type" />
 		<field name="cprice" />
-		<field name="people" />
+		<field name="people" /><!-- hideIf="$popup()" :- we can use this attribute to hide people field in people view popup  -->
 	</form>
 	<!-- not done any action yet -->
 	<action-validate name="action-mobile-validate-onload" >

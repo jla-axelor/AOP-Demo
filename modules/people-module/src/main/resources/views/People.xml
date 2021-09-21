@@ -55,10 +55,13 @@
 		<panel name="panel2" title="Panel 2" colSpan="4" stacked="true" showIf="haveHouse == false" showFrame="true" showTitle="true"  
 		canCollapse="true" collapseIf="true"	>
 		<!-- stacked="true" is same as itemSpan="12" -->
-				
-				<field name="image"/>
-				<panel-related field="clothsList" form-view="people_cloths_form" grid-view="cloths_grid"/>
-				<field name="rateMyForm" showTitle="false" widget="NavSelect"/>
+			<field name="image"/>
+			<panel-related field="clothsList" form-view="people_cloths_form" >
+				<field name="name" />
+				<field name="type" />
+				<field name="cprice" /> 
+			</panel-related>
+			<field name="rateMyForm" showTitle="false" widget="NavSelect"/>
 		</panel>
 		
 	</form>
