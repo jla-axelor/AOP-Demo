@@ -26,30 +26,54 @@
 	</grid>
 	
 	<form model="com.axelor.people.db.People" title="People" name="people-form"  onNew="action-people-record-onnew" width="large" >
-		<panel name="mianPanel">
-			<panel name="innerPanel1" title="Inner Panel 1" colSpan="8" >
+		<panel-tabs name="panel1">
+			<panel name="panelTab1" title="Panel Tab 1" ><!-- if-module="people" -:If people module is present then it will be displayed  -->
 				<field name="refrence" colSpan="12"/>
 				<field name="peopleName"/>
 				<field name="mobile"/>
 				<field name="bankBalance"/>
 				<field name="bankName"/>
+			</panel>
+			<panel name="panelTab2" title="Panel Tab 2" onTabSelect="action-people-showpanel2" >
 				<field name="password"/>
 				<field name="haveHouse"/>
-			</panel>
-			<!-- if we want to use <= in xml them we can use like " &li;= " -->
-	  <!--  <panel name="innerPanel2" title="Inner Panel 2" colSpan="4" itemSpan="12" hideIf="haveHouse == false"> -->
-			<panel name="innerPanel2" title="Inner Panel 2" colSpan="4" itemSpan="12" showIf="haveHouse == false" showFrame="true" showTitle="true" >
 				<field name="dateOfBirth"/>
 				<field name="timeOfEntry"/>
 				<field name="dateTimeDemo"/>
-				<field name="image"/>
-				<panel-related field="clothsList" />
-				<field name="rateMyForm" showTitle="false" widget="NavSelect"/>
 			</panel>
+		</panel-tabs>
+		
+		<panel name="panel11" title="Panle 11" sidebar="true" >
+				<help>Click button to validate your password</help>
+				<label title="Click below button" /> 
+				<separator colSpan="12" />
+				<button onClick="action-peopole-validate-password" name="validateBtn" title="Validate Password" colSpan="8" />
+		</panel> 
+		
+		<!-- if we want to use <= in xml them we can use like " &li;= " -->
+	    <!--  <panel name="innerPanel2" title="Inner Panel 2" colSpan="4" itemSpan="12" hideIf="haveHouse == false"> -->
+		<panel name="panel2" title="Panel 2" colSpan="4" stacked="true" showIf="haveHouse == false" showFrame="true" showTitle="true"  
+		canCollapse="true" collapseIf="true"	>
+		<!-- stacked="true" is same as itemSpan="12" -->
+				
+				<field name="image"/>
+				<panel-related field="clothsList" form-view="people_cloths_form" grid-view="cloths_grid"/>
+				<field name="rateMyForm" showTitle="false" widget="NavSelect"/>
 		</panel>
+		
 	</form>
+	
 	<action-record name="action-people-record-onnew" model="com.axelor.people.db.People">
 		<field name="bankName" expr="kotak"/>
 	</action-record>
+
+	<action-record name="action-people-showpanel2" model="com.axelor.people.db.People">
+		<field name="haveHouse" expr="false"/>	
+		<field name="dateOfBirth" expr="eval: __date__" if= "dateOfBirth==null"/><!-- If dateOfBirth is null then it will fill the current date  -->	
+	</action-record>
+	
+	<action-validate name="action-peopole-validate-password">
+		<info message="Password is Empty" if="password==null" />
+	</action-validate>
 </object-views>  
   

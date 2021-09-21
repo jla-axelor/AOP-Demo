@@ -21,7 +21,7 @@
 		<field name="name" />
 		<field name="type" />
 		<field name="cprice" aggregate="sum" />
-		<field name="people" />
+		<field name="people" hideIf="$popup()" />
 		<button onClick="click" prompt="Are you sure ?"  name="clickBtn" title="click Here" icon="fa-print" />
 		
 	</grid>
@@ -35,5 +35,11 @@
 	<action-validate name="action-mobile-validate-onload" >
 		<notify message="This is new cloths" if = "type == 'new'"/>
 	</action-validate>
-
+	<!-- This form is used in people cloths new button -->
+	<form model="com.axelor.people.db.Cloths" title="People Cloths form" name="people_cloths_form">
+		<field name="name" />
+		<field name="type" />
+		<field name="cprice" />
+	</form>
+	
 </object-views>

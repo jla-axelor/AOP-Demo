@@ -10,13 +10,17 @@
 		
 	</grid>
 	<form model="com.axelor.people.db.Mobile" title="Mobile Phone" name="mobile_form" onSave="action-people-monile-onsave" canAttach="false">
-		<panel>
+		<panel-stack>
+		<panel name="stackPanle1" title="Stack Panel 1">
 			<field name="name" />
 			<field name="price" />
-			<field name="fullName" />	
+			<field name="fullName" />
+		</panel>
+		<panel name="stackPanle2" title="Stack Panel 2">	
 			<field name="image" />
 			<field name="random" />
 		</panel>
+		</panel-stack>
 	</form>
 	<action-record name="action-people-monile-onsave" model="com.axelor.people.db.Mobile">
 		<field name="random" expr="1211"/>
