@@ -8,14 +8,17 @@
 		<field name="image" />
 		
 	</grid>
-	<form model="com.axelor.people.db.Mobile" title="Mobile Phone" name="mobile_form">
+	<form model="com.axelor.people.db.Mobile" title="Mobile Phone" name="mobile_form" onSave="action-people-monile-onsave" canAttach="false">
 		<panel>
 			<field name="name" />
 			<field name="price" />
 			<field name="fullName" />	
 			<field name="image" />
+			<field name="random" />
 		</panel>
 	</form>
-
-
+	<action-record name="action-people-monile-onsave" model="com.axelor.people.db.Mobile">
+		<field name="random" expr="1211"/>
+	</action-record>	
+	
 </object-views>

@@ -25,11 +25,15 @@
 		<button onClick="click" prompt="Are you sure ?"  name="clickBtn" title="click Here" icon="fa-print" />
 		
 	</grid>
-	<form model="com.axelor.people.db.Cloths" title="Cloths" name="cloths_form">
+	<form model="com.axelor.people.db.Cloths" title="Cloths" name="cloths_form" onLoad="action-mobile-validate-onload">
 		<field name="name" />
 		<field name="type" />
 		<field name="cprice" />
 		<field name="people" />
 	</form>
+	<!-- not done any action yet -->
+	<action-validate name="action-mobile-validate-onload" >
+		<notify message="This is new cloths" if = "type == 'NEW'"/>
+	</action-validate>
 
 </object-views>
