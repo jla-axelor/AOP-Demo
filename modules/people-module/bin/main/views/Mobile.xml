@@ -19,11 +19,22 @@
 		<panel name="stackPanle2" title="Stack Panel 2">	
 			<field name="image" />
 			<field name="random" />
+			
+			<field name="$dummyDemo" type="boolean" title="Dummy Field Demo" readonly="true"/>
+			<!-- This is dummy field that i haven't created in domain and $ sign means it wont create our form dirty (means after performing action form is in not went in unsaved mode)-->
+			<field name="dummy2" type="one-to-many" target="com.axelor.people.db.Cloths" colSpan="12" title="Dummy demo 2" />
+			
 		</panel>
 		</panel-stack>
+		<panel sidebar="true" name="panel2" title="side Panel">
+			<button onClick="action-people-mobile-fill-dummy" name="checkDummy" title="Check Dummy Field"/>
+		</panel>
 	</form>
 	<action-record name="action-people-monile-onsave" model="com.axelor.people.db.Mobile">
-		<field name="random" expr="1211"/>
+		<field name="random" expr="eval:'1211'"/>
+	</action-record>
+	<action-record name="action-people-mobile-fill-dummy" model="com.axelor.people.db.Mobile">
+		<field name="$dummyDemo" expr="eval: true"/>
 	</action-record>	
 	
 </object-views>

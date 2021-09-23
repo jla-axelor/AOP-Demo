@@ -25,6 +25,27 @@
 		</field>
 	</grid>
 	
+	<cards name="people-cards" model="com.axelor.people.db.People" title="Peoples"  width="20%">
+		<field name="image"/>
+		<field name="refrence"/>
+		<field name="peopleName"/>
+		<field name="mobile"/>
+		<field name="clothsList"/>
+		<template>
+			<![CDATA[
+				<div class="span4 card-image">
+					<img ng-src="{{$image(null, 'image')}}">
+   					<strong>{{refrence}}</strong>
+   					<strong>{{peopleName}}</strong>
+				</div>
+				<div class="span8">
+					<h4>Mobile  from another div</h4>
+   					<strong>{{mobile}}</strong>
+				</div>
+			]]>
+		</template>
+	</cards>
+	
 	<form model="com.axelor.people.db.People" title="People" name="people-form"  onNew="action-people-record-onnew" width="large" >
 		<panel-tabs name="panel1">
 			<panel name="panelTab1" title="Panel Tab 1" ><!-- if-module="people" -:If people module is present then it will be displayed  -->
@@ -40,6 +61,36 @@
 				<field name="dateOfBirth"/>
 				<field name="timeOfEntry"/>
 				<field name="dateTimeDemo"/>
+			</panel>
+			<!-- Editor Demo -->
+			<panel name="paneltab3" title="Editer Demo">
+				<field name="clothsList">
+					<editor x-viewer="true"><!-- x-viewer is represent for default viewer of editor -->
+						<field name="name" />
+						<field name="type" />
+						<field name="cprice" />
+					</editor>
+				</field>
+			</panel>
+			<panel name="viewerDemo" title="Viewer Demo">
+				<field name="peopleName">
+					<viewer>
+						<![CDATA[
+							<strong>{{record.peopleName}}</strong>
+						]]>
+					</viewer>
+				</field>
+				<!-- not done yet -->
+				<field name="clothsList">
+					<viewer>
+				
+						<![CDATA[
+							<strong>{{record.clothsList.name}}</strong>
+							<strong>{{record.clothsList.type}}</strong>
+							<strong>{{record.clothsList.cprice}}</strong>
+						]]>
+					</viewer>
+				</field>
 			</panel>
 		</panel-tabs>
 		
