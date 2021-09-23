@@ -6,6 +6,7 @@
 		<module name="people" package="com.axelor.people.db"/>
 		
 		<entity name="Cloths" lang="java" table="Cloths"  > 
+			<integer name="sequence" />
 			<string name="name" title="Cloth Name" />
 			<string name="type" selection="people.cloths.type" />
 			<integer name="cprice" title="Cloths Price" ></integer>

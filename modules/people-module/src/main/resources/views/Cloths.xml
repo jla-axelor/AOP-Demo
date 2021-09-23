@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 	
-	<grid model="com.axelor.people.db.Cloths" title="Cloths" name="cloths_grid"  orderBy="-cprice" groupBy="people">
+	<grid model="com.axelor.people.db.Cloths" title="Cloths" name="cloths_grid"  orderBy="-cprice">
 		<toolbar>
 			<button onClick="click" prompt="Are you sure ? (from toolbar)" name="clickBtn" title="click Here" icon="fa-print" />
 		</toolbar> 
@@ -26,10 +26,14 @@
 		
 	</grid>
 	<form model="com.axelor.people.db.Cloths" title="Cloths" name="cloths_form" onLoad="action-mobile-validate-onload">
-		<field name="name" />
+		<!-- Included panel -->
+		<panel-include view="people_cloths_form"/>
+		<panel name="mainPanel" title="Main Panel">
+			<field name="people" /><!-- hideIf="$popup()" :- we can use this attribute to hide people field in people view popup  -->
+		</panel>
+<!-- 		<field name="name" />
 		<field name="type" />
-		<field name="cprice" />
-		<field name="people" /><!-- hideIf="$popup()" :- we can use this attribute to hide people field in people view popup  -->
+		<field name="cprice" /> -->
 	</form>
 	<!-- not done any action yet -->
 	<action-validate name="action-mobile-validate-onload" >
@@ -37,10 +41,11 @@
 	</action-validate>
 	<!-- This form is used in people cloths new button -->
 	<form model="com.axelor.people.db.Cloths" title="People Cloths form" name="people_cloths_form">
-		<field name="name" />
-		<field name="type" />
-		<field name="cprice" />
-		<field name="people" />
+		<panel name="innerPanel" title="Included Panel">
+			<field name="name" />
+			<field name="type" />
+			<field name="cprice" />
+		</panel>
 	</form>
 	<grid model="com.axelor.people.db.Cloths" title="People Cloths Grid" name="people_cloths_grid">
 		<hilite if="people != null" color="success" />
