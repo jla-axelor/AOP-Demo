@@ -26,4 +26,9 @@
 		<!--	<domain>self.people != null</domain>  -->
 	</action-view>
 	
+	<menuitem title="Project" name="people-root-project" parent="people-root" action="action.people.root.project"/>
+	<action-view name="action.people.root.project" title="Project" model="com.axelor.people.db.Project">
+		<view type="kanban" name="project-kanban" />
+		<view type="form" name="project-form" />
+	</action-view>
 </object-views>

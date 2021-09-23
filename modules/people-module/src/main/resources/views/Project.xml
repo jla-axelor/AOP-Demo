@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+	<kanban columnBy="statusSelect" model="com.axelor.people.db.Project" sequenceBy="priority" title="Projects" name="project-kanban" 
+			draggable="true" onMove="action-project-onmove" onNew="action-project-onnew" limit="3">
+		<field name="name"/>
+		<field name="email"/>
+		<field name="description"/>
+		<template>
+			<![CDATA[
+				<div>
+					Name:<strong>{{record.name}}</strong>
+					<br/>
+					Email:<strong>{{record.email}}</strong>
+					<br/>
+					Description:<strong>{{record.description}}</strong>
+					<span ng-bind-html="description"/>
+				</div>
+			]]>
+		</template>
+	</kanban>	
+	
+	<form model="com.axelor.people.db.Project" title="Project" name="project-form" width="large">
+		<panel name="mainPanel" title="Main Panel">
+			<field name="statusSelect" widget="NavSelect" colSpan="12"/>
+			<field name="name"/>
+			<field name="email"/>
+			<field name="description" widget="html" colSpan="12"/>
+		</panel>
+	</form>
+	
+	<action-validate name="action-project-onmove">
+		<info message="Project moved"/>
+	</action-validate>
+	<action-record name="action-project-onnew" model="com.axelor.people.db.Project">
+		<field name="name" expr="eval: _value"/>
+	</action-record>
+	
+</object-views>
