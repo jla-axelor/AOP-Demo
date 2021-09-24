@@ -46,7 +46,7 @@
 		</template>
 	</cards>
 	
-	<form model="com.axelor.people.db.People" title="People" name="people-form"  onNew="action-people-record-onnew" width="large" >
+	<form model="com.axelor.people.db.People" title="People" name="people-form"  onNew="action-people-record-onnew" width="large" onSave="action-people-password-eval" >
 		<panel-tabs name="panel1">
 			<panel name="panelTab1" title="Panel Tab 1" ><!-- if-module="people" -:If people module is present then it will be displayed  -->
 				<field name="refrence" colSpan="12"/>
@@ -55,7 +55,7 @@
 				<field name="bankBalance"/>
 				<field name="bankName"/>
 			</panel>
-			<panel name="panelTab2" title="Panel Tab 2" onTabSelect="action-people-showpanel2" >
+			<panel name="panelTab2" title="Panel Tab 2" onTabSelect="action-people-showpanel2">
 				<field name="password"/>
 				<field name="haveHouse"/>
 				<field name="dateOfBirth"/>
@@ -131,5 +131,9 @@
 	<action-validate name="action-peopole-validate-password">
 		<info message="Password is Empty" if="password==null" />
 	</action-validate>
+	
+	<action-record name="action-people-password-eval" model="com.axelor.people.db.People">
+		<field name="password" expr="eval: _value"/>
+	</action-record>
 </object-views>  
   

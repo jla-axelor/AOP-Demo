@@ -15,7 +15,7 @@
 					<br/>
 					Email:<strong>{{record.email}}</strong>
 					<br/>
-					Description:<strong>{{record.description}}</strong>
+					Description:
 					<span ng-bind-html="description"/>
 				</div>
 			]]>
