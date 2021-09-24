@@ -7,9 +7,10 @@
 	
 	<menuitem title="People" name="people-root-people" parent="people-root" action="action.people.root.people"/>
 	<action-view name="action.people.root.people" title="People" model="com.axelor.people.db.People" >
-		<view type="grid" name="people-grid" />
+		<!-- <view type="grid" name="people-grid" /> -->
 		<view type="cards" name="people-cards"/>
 		<view type="form" name="people-form" />
+		<view-param name="search-filters" value="filter-names"/>
 	</action-view>
 	
 	  <menuitem title="Mobile Phone" name="people-root-mobile" parent="people-root" action="action.people.root.mobile" />

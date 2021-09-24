@@ -4,6 +4,7 @@
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 	
 	<grid model="com.axelor.people.db.Cloths" title="Cloths" name="cloths_grid"  orderBy="-cprice">
+		
 		<toolbar>
 			<button onClick="click" prompt="Are you sure ? (from toolbar)" name="clickBtn" title="click Here" icon="fa-print" />
 		</toolbar> 
@@ -51,7 +52,7 @@
 	<grid model="com.axelor.people.db.Cloths" title="People Cloths Grid" name="people_cloths_grid">
 		<!-- <hilite if="people != null" color="success" />
 		<hilite if="people == null" color="danger" /> -->
-		<field name="name" />
+		<field name="name"  domain="self.name = 'shirt'"  />
 		<field name="type" />
 		<field name="cprice" />  
 		<field name="people" hidden="true" />
