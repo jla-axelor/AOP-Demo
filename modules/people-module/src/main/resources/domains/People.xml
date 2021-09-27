@@ -11,7 +11,7 @@
 			<item name="GOOD" value="3" />
 			<item name="EXCELLENT" value="4" />
 		</enum>
-		 <entity name="People" lang="java">
+		 <entity name="People" lang="java" >
 		 	 <string name="refrence" title="Refrence" sequence="people.refrence" readonly="true"/>
 			 <string name="peopleName" title="People_Name" required="true" namecolumn="true" initParam="true"/>
 			 <string name="mobile" title="Mobile_Number" required="true" help="Enter mobile number" unique="true" initParam="true" />

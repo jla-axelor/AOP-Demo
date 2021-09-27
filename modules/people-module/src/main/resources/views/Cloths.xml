@@ -30,7 +30,7 @@
 		<!-- Included panel -->
 		<panel-include view="people_cloths_form"/>
 		<panel name="mainPanel" title="Main Panel">
-			<field name="people"  target-name="bankName"/><!-- hideIf="$popup()" :- we can use this attribute to hide people field in people view popup  -->
+			<field name="people"  target-name="bankName" /><!-- hideIf="$popup()" :- we can use this attribute to hide people field in people view popup  -->
 														  <!-- with the help of target-name we can change nameColumn so now its display bank name instead of people name -->		
 		</panel>
 <!-- 		<field name="name" />

@@ -5,6 +5,8 @@
 
 	<kanban columnBy="statusSelect" model="com.axelor.people.db.Project" sequenceBy="priority" title="Projects" name="project-kanban" 
 			draggable="true" onMove="action-project-onmove" onNew="action-project-onnew" limit="3">
+			<!-- colunmBy is a selection field that create column in view  -->
+			<!-- sequenceBy is used to re-order the field -->
 		<field name="name"/>
 		<field name="email"/>
 		<field name="description"/>
@@ -34,8 +36,8 @@
 	<action-validate name="action-project-onmove">
 		<info message="Project moved"/>
 	</action-validate>
-	<action-record name="action-project-onnew" model="com.axelor.people.db.Project">
+	<!-- <action-record name="action-project-onnew" model="com.axelor.people.db.Project">
 		<field name="name" expr="eval: _value"/>
-	</action-record>
+	</action-record> -->
 	
 </object-views>

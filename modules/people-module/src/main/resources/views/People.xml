@@ -21,7 +21,6 @@
 			<grid title="Cloths">
 				<field name="name"/>
 				<field name="type" />
-				<field name="people" />
 			</grid>
 		</field>
 	</grid>
@@ -36,12 +35,10 @@
 			<![CDATA[
 				<div class="span4 card-image">
 					<img ng-src="{{$image(null, 'image')}}">
-   					<strong>{{refrence}}</strong>
+   					<strong ng-bind="refrence"></strong>
    					<strong>{{peopleName}}</strong>
-				</div>
-				<div class="span8">
-					<h4>Mobile  from another div</h4>
    					<strong>{{mobile}}</strong>
+   					{{clothsList[0].name}}
 				</div>
 			]]>
 		</template>
@@ -81,16 +78,20 @@
 						]]>
 					</viewer>
 				</field>
-				<!-- not done yet -->
 				<field name="clothsList">
+					
 					<viewer>
-				
 						<![CDATA[
-							<strong>{{record.clothsList.name}}</strong>
-							<strong>{{record.clothsList.type}}</strong>
-							<strong>{{record.clothsList.cprice}}</strong>
+							<strong>{{record.name}}</strong>
+							<strong>{{record.type}}</strong>
+							<strong>{{record.cprice}}</strong>
 						]]>
 					</viewer>
+					<editor>
+						<field name="name" />
+						<field name="type" />
+						<field name="cprice" />
+					</editor>
 				</field>
 			</panel>
 		</panel-tabs>
@@ -105,9 +106,9 @@
 		<!-- if we want to use <= in xml them we can use like " &li;= " -->
 	    <!--  <panel name="innerPanel2" title="Inner Panel 2" colSpan="4" itemSpan="12" hideIf="haveHouse == false"> -->
 		<panel name="panel2" title="Panel 2" colSpan="4" stacked="true" showIf="haveHouse == false" showFrame="true" showTitle="true"  
-		canCollapse="true" collapseIf="true"	>
+		canCollapse="true" collapseIf="true">
 		<!-- stacked="true" is same as itemSpan="12" -->
-			<field name="image"/>
+			<field name="image" />
 			<panel-related field="clothsList" form-view="people_cloths_form" grid-view="people_cloths_grid" canNew="true" canEdit="true" canRemove="true" 
 				canSuggest="true" showFrame="true" canMove="true" orderBy="sequence" x-selector="checkbox" >
 				
