@@ -3,9 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 	
-	<menuitem title="Demo Menu" name="people-root"/>
+	<menuitem title="Demo Menu" name="people-root" icon="fa-users" icon-background="bluegrey" order="-111" top="true" tag="Demo" />
+	<!-- with the help of order we can change the displaying order -->
 	
-	<menuitem title="People" name="people-root-people" parent="people-root" action="action.people.root.people"/>
+	<menuitem title="People" name="people-root-people" parent="people-root" action="action.people.root.people" icon="fa-user" icon-background="green" order="0"
+			  tag-count="true" tag-style="success" />
 	<action-view name="action.people.root.people" title="People" model="com.axelor.people.db.People" >
 		<!-- <view type="grid" name="people-grid" /> -->
 		<!-- if we change the sequence then that view display first -->
@@ -14,21 +16,55 @@
 		<view-param name="search-filters" value="filter-names"/>
 	</action-view>
 	
-	  <menuitem title="Mobile Phone" name="people-root-mobile" parent="people-root" action="action.people.root.mobile" />
+	<menuitem title="People Test" name="people-root-people-test" parent="people-root" action="action.people.root.people.test" icon="fa-user" icon-background="green" order="0"
+			  tag-count="true" tag-style="success" />
+	<action-view name="action.people.root.people.test" title="People Test from Action" model="com.axelor.people.db.People">
+		<view type="grid" name="people-grid" />
+		<view type="cards" name="people-cards"/>
+		<view type="form"  />
+		<!-- <domain>self.timeOfEntry != null</domain> -->
+		<!-- <domain>self.haveHouse = :entry</domain> -->
+		<!-- <context name="entry" expr="false"/> --><!-- context is used to assign a value of any variable -->
+		<view-param name="forceEdit" value="true"/><!-- record open in edit mode -->
+		<view-param name="forceTitle" value="true"/><!-- display action title instead of view DOUBT-->
+		<view-param name="showArchived" value="false"/>
+		<view-param name="details-view" value="true"/><!-- it display grid and form views side by side -->
+		<view-param name="limit" value="3"/><!-- grid view display data limit -->
+		<view-param name="popup" value="true"/><!-- QUERY -->
+		<view-param name="popup-save" value="false"/><!-- QUERY -->
+		<!-- <view-param name="search-filters" value="filter-names"/> -->
+	</action-view>
+	
+	<menuitem title="People2" name="people-root-people2" parent="people-root" icon="fa-users" icon-background="red" action="action.people.root.people" order="1" tag="Extra" />
+	<!--Though we remove this field form code , we have to remove this item manually from all menu section  -->
+	
+	<menuitem title="People3" name="people-root-top" icon="fa-users" icon-background="red" top="true" left="false"/>
+	<menuitem title="People3" name="people-root-people3" parent="people-root-top" icon="fa-users" action="action.people.root.people" icon-background="red" top="true" left="false"/>
+	<!-- using this top =true and left=false This menu will appear in top -->
+	
+	<menuitem title="Mobile Phone" name="people-root-mobile" parent="people-root" action="action.people.root.mobile" order="2" icon="fa-mobile" icon-background="cyan" tag-count="true" tag-style="default" top="true"/>
 	<action-view name="action.people.root.mobile" title="Mobile Phone" model="com.axelor.people.db.Mobile">
 		<view type="grid" name="mobile_grid" />
 		<view type="form" name="mobile_form" />
+		<view-param name="show-confirm" value="false"/><!-- QUERY -->
+		<view-param name="reload-dotted" value="true"/>	<!-- QUERY -->
+		<context name="_showSingle" expr="eval: true"/><!-- Not Working -->
 	</action-view> 
 	
-	<menuitem title="Cloths" name="people-root-cloths" parent="people-root" action="action.people.root.cloths" />
+	<menuitem title="Cloths" name="people-root-cloths" parent="people-root" action="action.people.root.cloths" order="3" icon="fa-shirt" icon-background="green" tag-count="true" tag-style="inverse" top="true" />
 	<action-view name="action.people.root.cloths" title="Cloths" model="com.axelor.people.db.Cloths" >
 		<view type="grid" name="cloths_grid" />
 		<view type="form" name="cloths_form" />
 		<!-- it will filter all without people cloths -->
 		<!--	<domain>self.people != null</domain>  -->
+		<view-param name="popup" value="true"/>
+		<view-param name="popup-save" value="true"/><!-- QUERY -->
+		<view-param name="popup.maximized" value="true"/><!-- QUERY -->
+		<view-param name="show-toolbar" value="false"/><!-- QUERY -->
+		<context name="_showRecord" expr="eval: 2"/><!-- It will display particular ID record  -->
 	</action-view>
 	
-	<menuitem title="Project" name="people-root-project" parent="people-root" action="action.people.root.project"/>
+	<menuitem title="Project" name="people-root-project" parent="people-root" action="action.people.root.project" order="4" tag-count="true" tag-style="info" top="true"/>
 	<action-view name="action.people.root.project" title="Project" model="com.axelor.people.db.Project">
 		<view type="kanban" name="project-kanban" />
 		<view type="form" name="project-form" />

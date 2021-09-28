@@ -9,7 +9,7 @@
 		<field name="random" />
 		
 	</grid>
-	<form model="com.axelor.people.db.Mobile" title="Mobile Phone" name="mobile_form" onSave="action-people-monile-onsave" canAttach="false">
+	<form model="com.axelor.people.db.Mobile" title="Mobile Phone" name="mobile_form" onSave="action-people-monile-onsave">
 		<panel-stack>
 		<panel name="stackPanle1" title="Stack Panel 1">
 			<field name="name" />
@@ -17,7 +17,7 @@
 			<field name="fullName" />
 		</panel>
 		<panel name="stackPanle2" title="Stack Panel 2">	
-			<field name="image" />
+			<field name="image" widget="binary-link"/>
 			<field name="random" />
 			
 			<field name="$dummyDemo" type="boolean" title="Dummy Field Demo" readonly="true"/>
@@ -31,7 +31,7 @@
 		</panel>
 	</form>
 	<action-record name="action-people-monile-onsave" model="com.axelor.people.db.Mobile">
-		<field name="random" expr="eval:'1211'"/>
+		<field name="random" expr="eval:'1211'"/> 
 	</action-record>
 	<action-record name="action-people-mobile-fill-dummy" model="com.axelor.people.db.Mobile">
 		<field name="$dummyDemo" expr="eval: true"/>
