@@ -60,7 +60,7 @@
 		<view-param name="forceTitle" value="true"/><!-- display action title instead of view DOUBT-->
 		<view-param name="show-confirm" value="false"/><!-- QUERY -->
 		<view-param name="popup" value="true"/><!-- show any action popup or not -->
-		<view-param name="popup-save" value="true"/><!-- QUERY -->
+		<view-param name="popup-save" value="false"/><!-- It will not give OK button -->
 		<view-param name="popup.maximized" value="true"/><!-- QUERY -->
 		<view-param name="show-toolbar" value="true"/><!-- Hide and form toolbar -->
 		<!-- <context name="_showRecord" expr="eval: 2"/>It will display particular ID record  -->
