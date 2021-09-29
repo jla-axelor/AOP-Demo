@@ -7,9 +7,10 @@
 		<field name="fullName" />
 		<field name="image" />
 		<field name="random" />
+		<field name="mobileQuality" />
 		
 	</grid>
-	<form model="com.axelor.people.db.Mobile" title="Mobile Phone" name="mobile_form" onSave="action-people-monile-onsave">
+	<form model="com.axelor.people.db.Mobile" title="Mobile Phone" name="mobile_form" onLoad="people-mobile-attrs-group-action-demo">
 		<panel-stack>
 		<panel name="stackPanle1" title="Stack Panel 1">
 			<field name="name" />
@@ -23,18 +24,33 @@
 			<field name="$dummyDemo" type="boolean" title="Dummy Field Demo" readonly="true"/>
 			<!-- This is dummy field that i haven't created in domain and $ sign means it wont create our form dirty (means after performing action form is in not went in unsaved mode)-->
 			<field name="dummy2" type="one-to-many" target="com.axelor.people.db.Cloths" colSpan="12" title="Dummy demo 2" />
-			
+		</panel>
+		<panel name="stakePanel3" title="Stake Panel 3">
+			<field name="mobileQuality" title="Mobile Quality" widget="NavSelect" onChange="people-mobile-actionAttrs-demo"/>
+			<button onClick="people-mobile-actionAttrs-demo" name="actionDemo" title="Action Demo"/>
 		</panel>
 		</panel-stack>
-		<panel sidebar="true" name="panel2" title="side Panel">
+		<panel sidebar="true" name="panel2" title="side Panel" stacked="true">
 			<button onClick="action-people-mobile-fill-dummy" name="checkDummy" title="Check Dummy Field"/>
 		</panel>
 	</form>
-	<action-record name="action-people-monile-onsave" model="com.axelor.people.db.Mobile">
+	
+	<!-- with the help of action group we can perform more action at a time  -->
+	<!-- <action-record name="action-people-monile-onsave" model="com.axelor.people.db.Mobile">
 		<field name="random" expr="eval:'1211'"/> 
-	</action-record>
+	</action-record> -->
 	<action-record name="action-people-mobile-fill-dummy" model="com.axelor.people.db.Mobile">
 		<field name="$dummyDemo" expr="eval: true"/>
 	</action-record>	
+	
+		<action-attrs name="people-mobile-actionAttrs-demo" >
+		<attribute name="value" for="$dummyDemo" expr="eval: mobileQuality == 'new'" />
+		<attribute name="readonly" for="random" expr="eval: mobileQuality == 'new'"/>
+		<attribute name="collapse" for="stackPanle1" expr="eval: mobileQuality == 'new'"/>
+		<attribute name="hidden" for="dummy2" expr="eval: mobileQuality == 'new'"/>
+		<attribute name="title" for="panel2" expr="eval: mobileQuality == 'new'? 'change title' : 'Panel 2'"/>
+		<!-- <attribute name="title" for="panel2" expr="eval: mobileQuality == 'new'? &quot; change title &quot; : 'Panel 2'"/> --><!-- we can use " as &quot; and >= is used as &gt;= -->
+		<attribute name="css" for="panel2" expr="eval: 'panel-green'" if="mobileQuality == 'new'"/><!-- not working -->
+	</action-attrs>
 	
 </object-views>

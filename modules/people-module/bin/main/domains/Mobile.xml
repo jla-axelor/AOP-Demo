@@ -12,8 +12,9 @@
 					return name+" : "+price;				
 				]]>
 			</string>
-			<string name="random" transient="true" title="Randome somethig" />
+			<string name="random" title="Randome somethig" />
 			<many-to-one ref="com.axelor.meta.db.MetaFile" name="image" title="Image" />
+			<string name="mobileQuality" title="Mobile Quality" selection="people.mobile.mobileQuality" />
 			<finder-method name="findByNameAndPrice" using="name,price"/><!-- create AND query -->
 			<finder-method name="findByNameOrPrice" using="String:name,String:price" filter="self.name = :name OR self.price = :price" />
 		</entity>

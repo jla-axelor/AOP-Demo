@@ -96,11 +96,13 @@
 			</panel>
 		</panel-tabs>
 		
-		<panel name="panel11" title="Panle 11" sidebar="true" >
+		<panel name="panel11" title="Panel 11" sidebar="true" >
 				<help>Click button to validate your password</help>
 				<label title="Click below button" /> 
 				<separator colSpan="12" />
 				<button onClick="action-peopole-validate-password" name="validateBtn" title="Validate Password" colSpan="8" />
+				
+				<button onClick="action.people.root.cloths" name="actionViewBtn" title="Show Action View" colSpan="10"/><!-- Pending further operation -->
 		</panel> 
 		
 		<!-- if we want to use <= in xml them we can use like " &li;= " -->
@@ -122,7 +124,7 @@
 	</form>
 	
 	<action-record name="action-people-record-onnew" model="com.axelor.people.db.People">
-		<field name="bankName" expr="kotak"/>
+		<field name="bankName" expr="eval: _entry"/>
 	</action-record>
 
 	<action-record name="action-people-showpanel2" model="com.axelor.people.db.People">
@@ -137,6 +139,7 @@
 	<action-record name="action-people-password-eval" model="com.axelor.people.db.People">
 		<field name="password" expr="eval: _value"/>
 	</action-record>
+	
 	
 	<search-filters name="filter-names" model="com.axelor.people.db.People" title="Filter People by house">
 		<filter title="have House">

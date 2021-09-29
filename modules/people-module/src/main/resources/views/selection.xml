@@ -14,5 +14,11 @@
 		<option value="3">Finished</option>
 		<option value="4">Cancelled</option>
 	</selection>
-
+	
+	<selection name="people.mobile.mobileQuality">
+		<option value="new">New</option>
+		<option value="old">Old</option>
+		<option value="secondHand">Second Hand</option>
+		<option value="notMatter">No matter</option>
+	</selection>
 </object-views>

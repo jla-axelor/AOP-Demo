@@ -16,7 +16,7 @@
 			 <string name="peopleName" title="People_Name" required="true" namecolumn="true" initParam="true"/>
 			 <string name="mobile" title="Mobile_Number" required="true" help="Enter mobile number" unique="true" initParam="true" />
 			 <decimal name="bankBalance" title="Bank_Balance" default="1"></decimal>
-			 <string name="bankName" title="Bank_Name" required="true"></string>
+			 <string name="bankName" title="Bank_Name" ></string>
 		 	 <string name="password" title="Password" password="true" encrypted="true" />
 		 	 <boolean name="haveHouse" title="Do you have House"/>
 		 	 <date name="dateOfBirth" title="Date of Birth" />

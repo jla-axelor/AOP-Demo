@@ -26,12 +26,13 @@
 		<button onClick="click" prompt="Are you sure ?"  name="clickBtn" title="click Here" icon="fa-print" />
 		
 	</grid>
-	<form model="com.axelor.people.db.Cloths" title="Cloths" name="cloths_form" onLoad="action-mobile-validate-onload">
+	<form model="com.axelor.people.db.Cloths" title="Cloths" name="cloths_form" onLoad="action-mobile-validate-onload" canAttach="true" onNew="people-cloths-acton-record-onenew-demo">
 		<!-- Included panel -->
 		<panel-include view="people_cloths_form"/>
 		<panel name="mainPanel" title="Main Panel">
-			<field name="people"  target-name="bankName" /><!-- hideIf="$popup()" :- we can use this attribute to hide people field in people view popup  -->
+			<!-- <field name="people"  target-name="bankName" /> --><!-- hideIf="$popup()" :- we can use this attribute to hide people field in people view popup  -->
 														  <!-- with the help of target-name we can change nameColumn so now its display bank name instead of people name -->		
+			<field name="people" /> <!-- domain="self.haveHouse = true" <-with the help of this we can get people with have house is true  -->
 		</panel>
 <!-- 		<field name="name" />
 		<field name="type" />
@@ -58,4 +59,13 @@
 		<field name="people" hidden="true" />
 	</grid>
 	
+	<action-record name="people-cloths-acton-record-onenew-demo" model="com.axelor.people.db.Cloths">
+		<field name="name" expr="fency"/>
+		<field name="type" expr="eval: 'new'"/>	
+		<field name="people" expr="action: people-cloths-inner-action-default-people"/>
+	</action-record>	
+	<action-record name="people-cloths-inner-action-default-people" model="com.axelor.people.db.People" search="self.haveHouse IS TRUE">
+		<field name="peopleName" expr="Jaydeep Default"/>
+		<field name="bankBalance" expr="121"/>
+	</action-record>
 </object-views>
