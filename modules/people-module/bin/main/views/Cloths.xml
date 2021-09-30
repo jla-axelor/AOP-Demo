@@ -67,5 +67,8 @@
 	<action-record name="people-cloths-inner-action-default-people" model="com.axelor.people.db.People" search="self.haveHouse IS TRUE">
 		<field name="peopleName" expr="Jaydeep Default"/>
 		<field name="bankBalance" expr="121"/>
+		<field name="mobile" expr="65854899898"/>
+		<field name="bankName" expr="BOB"/>
+		<field name="haveHouse" expr="eval: true"/>
 	</action-record>
 </object-views>

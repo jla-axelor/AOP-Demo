@@ -55,7 +55,7 @@
 			</panel>
 			<panel name="panelTab2" title="Panel Tab 2" onTabSelect="action-people-showpanel2">
 				<field name="password"/>
-				<field name="haveHouse"/>
+				<field name="haveHouse" widget="boolean-switch" />
 				<field name="dateOfBirth"/>
 				<field name="timeOfEntry"/>
 				<field name="dateTimeDemo"/>
