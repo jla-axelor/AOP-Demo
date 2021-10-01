@@ -10,7 +10,7 @@
 		<field name="mobileQuality" />
 		
 	</grid>
-	<form model="com.axelor.people.db.Mobile" title="Mobile Phone" name="mobile_form" onLoad="people-mobile-attrs-group-action-demo">
+	<form model="com.axelor.people.db.Mobile" title="Mobile Phone" name="mobile_form" onSave="peopel-mobile-codition-demo">
 		<panel-stack>
 		<panel name="stackPanle1" title="Stack Panel 1">
 			<field name="name" />
@@ -26,7 +26,7 @@
 			<field name="dummy2" type="one-to-many" target="com.axelor.people.db.Cloths" colSpan="12" title="Dummy demo 2" />
 		</panel>
 		<panel name="stakePanel3" title="Stake Panel 3">
-			<field name="mobileQuality" title="Mobile Quality" widget="NavSelect" onChange="people-mobile-actionAttrs-demo"/>
+			<field name="mobileQuality" title="Mobile Quality" widget="RadioSelect" x-direction="vertical" onChange="people-mobile-actionAttrs-demo"/>
 			<button onClick="people-mobile-actionAttrs-demo" name="actionDemo" title="Action Demo"/>
 		</panel>
 		</panel-stack>
@@ -53,4 +53,7 @@
 		<attribute name="css" for="panel2" expr="eval: 'panel-green'" if="mobileQuality == 'new'"/><!-- not working -->
 	</action-attrs>
 	
+	<action-condition name="peopel-mobile-codition-demo">
+		<check field="price" if="price &lt;= 0" error="Please Enter valid price"/>
+	</action-condition>
 </object-views>

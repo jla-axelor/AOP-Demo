@@ -16,9 +16,9 @@
 	</selection>
 	
 	<selection name="people.mobile.mobileQuality">
-		<option value="new">New</option>
-		<option value="old">Old</option>
-		<option value="secondHand">Second Hand</option>
-		<option value="notMatter">No matter</option>
+		<option value="new" color="red">New</option>
+		<option value="old" color="grey">Old</option>
+		<option value="secondHand" color="cyan">Second Hand</option>
+		<option value="notMatter" color="green">No matter</option>
 	</selection>
 </object-views>
