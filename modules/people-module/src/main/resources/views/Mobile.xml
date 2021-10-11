@@ -8,6 +8,7 @@
 		<field name="image" />
 		<field name="random" />
 		<field name="mobileQuality" />
+		<field name="mobileSet"/>
 		
 	</grid>
 	<form model="com.axelor.people.db.Mobile" title="Mobile Phone" name="mobile_form" onSave="peopel-mobile-codition-demo">
@@ -16,6 +17,7 @@
 			<field name="name" />
 			<field name="price" />
 			<field name="fullName" />
+			<panel-related field="mobileSet" />
 		</panel>
 		<panel name="stackPanle2" title="Stack Panel 2">	
 			<field name="image" widget="binary-link"/>

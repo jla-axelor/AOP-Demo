@@ -5,7 +5,7 @@
 
 		 <module name="people" package="com.axelor.people.db"/>
 		 <entity name="Mobile" lang="java" table="Mobile_Table"  >
-			<string name="name" column="Mobile_Pnone_Name" title="Mobile Phone Name" required="true"/>
+			<string name="name" column="Mobile_Pnone_Name" title="Mobile Phone Name" required="true" />
 			<integer name="price" column="Mobile_Price" title="Mobile Price" />
 			<string name="fullName" search="name,price">
 				<![CDATA[
@@ -14,6 +14,7 @@
 			</string>
 			<string name="random" title="Randome somethig" />
 			<many-to-one ref="com.axelor.meta.db.MetaFile" name="image" title="Image" />
+			<many-to-many ref="com.axelor.people.db.Cover" name="coverset" mappedBy="mobileSet" />
 			<string name="mobileQuality" title="Mobile Quality" selection="people.mobile.mobileQuality" />
 			<finder-method name="findByNameAndPrice" using="name,price"/><!-- create AND query -->
 			<finder-method name="findByNameOrPrice" using="String:name,String:price" filter="self.name = :name OR self.price = :price" />

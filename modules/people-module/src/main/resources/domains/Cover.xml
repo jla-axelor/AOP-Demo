@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+		
+		<module package="com.axelor.people.db" name="Cover"/>
+		<entity name="Cover" lang="java">
+			<string name="name" />
+			<integer name="defaultValue" default="25" />
+			<many-to-many ref="com.axelor.people.db.Mobile" name="mobileSet"/>
+		</entity>
+
+</domain-models>

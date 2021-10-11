@@ -71,4 +71,11 @@
 		<view type="kanban" name="project-kanban" />
 		<view type="form" name="project-form" />
 	</action-view>
+	
+	<menuitem title="Cover" name="people-root-cover" parent="people-root" action="action.people.root.cover" />
+	<action-view name="action.people.root.cover" title="Cover" model="com.axelor.people.db.Cover">
+		<view type="grid" name="cover_grid"/>
+		<view type="form" name="cover_form"/>
+	</action-view>
+	
 </object-views>
