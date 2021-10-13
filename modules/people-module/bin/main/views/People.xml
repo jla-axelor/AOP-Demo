@@ -17,7 +17,8 @@
 		<field name="dateTimeDemo"/>
 		<field name="image" />
 		<field name="rateMyForm"/> 
-		<field name="clothsList" >
+		<field name="clothsList">
+			
 			<grid title="Cloths">
 				<field name="name"/>
 				<field name="type" />
@@ -25,20 +26,24 @@
 		</field>
 	</grid>
 	
-	<cards name="people-cards" model="com.axelor.people.db.People" title="Peoples">
+	<cards name="people-cards" model="com.axelor.people.db.People" title="Peoples" width="300px">
 		<field name="image" />
 		<field name="refrence"/>
 		<field name="peopleName"/>
 		<field name="mobile"/>
 		<field name="clothsList"/>
+		<field name="hasImage" />
 		<template>
 			<![CDATA[
-				<div class="span4 card-image">
-					<img ng-src="{{$image(null, 'image')}}">
+				<div class="card-image">
+					<img ng-src="{{$image(null, 'image')}}" ng-if="hasImage">
    					<strong ng-bind="refrence"></strong>
    					<strong>{{peopleName}}</strong>
    					<strong>{{mobile}}</strong>
-   					{{clothsList[0].name}}
+   					<!-- {{clothsList[0].name}} -->
+   					<clothsList>
+   						<strong>{{clothsList.name}}</strong>
+   					</clothsList>
 				</div>
 			]]>
 		</template>

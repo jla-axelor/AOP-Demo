@@ -8,16 +8,16 @@
 		<field name="image" />
 		<field name="random" />
 		<field name="mobileQuality" />
-		<field name="mobileSet"/>
+		<field name="coverset"/>
 		
 	</grid>
-	<form model="com.axelor.people.db.Mobile" title="Mobile Phone" name="mobile_form" onSave="peopel-mobile-codition-demo">
+	<form model="com.axelor.people.db.Mobile" title="Mobile Phone" name="mobile_form" onSave="peopel-mobile-codition-demo,people-mobile-greet-name">
 		<panel-stack>
 		<panel name="stackPanle1" title="Stack Panel 1">
 			<field name="name" />
 			<field name="price" />
 			<field name="fullName" />
-			<panel-related field="mobileSet" />
+			<panel-related field="coverset" />
 		</panel>
 		<panel name="stackPanle2" title="Stack Panel 2">	
 			<field name="image" widget="binary-link"/>
@@ -51,6 +51,7 @@
 		<attribute name="collapse" for="stackPanle1" expr="eval: mobileQuality == 'new'"/>
 		<attribute name="hidden" for="dummy2" expr="eval: mobileQuality == 'new'"/>
 		<attribute name="title" for="panel2" expr="eval: mobileQuality == 'new'? 'change title' : 'Panel 2'"/>
+		<!-- <attribute name="" for="coverset" expr=""/> -->
 		<!-- <attribute name="title" for="panel2" expr="eval: mobileQuality == 'new'? &quot; change title &quot; : 'Panel 2'"/> --><!-- we can use " as &quot; and >= is used as &gt;= -->
 		<attribute name="css" for="panel2" expr="eval: 'panel-green'" if="mobileQuality == 'new'"/><!-- not working -->
 	</action-attrs>
@@ -58,4 +59,8 @@
 	<action-condition name="peopel-mobile-codition-demo">
 		<check field="price" if="price &lt;= 0" error="Please Enter valid price"/>
 	</action-condition>
+	
+	<action-method name="people-mobile-greet-name">
+		<call class="com.axelor.people.web.MobileController" method="greet"/>
+	</action-method>
 </object-views>

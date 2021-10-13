@@ -6,6 +6,7 @@
 		<module package="com.axelor.people.db" name="Cover"/>
 		<entity name="Cover" lang="java">
 			<string name="name" />
+			<integer name="price" />
 			<integer name="defaultValue" default="25" />
 			<many-to-many ref="com.axelor.people.db.Mobile" name="mobileSet"/>
 		</entity>

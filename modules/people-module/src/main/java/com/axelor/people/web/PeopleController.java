@@ -15,6 +15,8 @@ import com.axelor.rpc.ActionRequest;
 import com.axelor.rpc.ActionResponse;
 import com.axelor.rpc.Context;
 
+import net.minidev.json.writer.BeansMapper.Bean;
+
 public class PeopleController {
 	public void cheking(ActionRequest req , ActionResponse res) {
 		Context context = req.getContext();
@@ -50,7 +52,7 @@ public class PeopleController {
 //		Here last one is domain filter
 	}
 	@CallMethod
-	public String greet(String name) {
+	public String greet(String name ) {
 		System.err.println(name);
 		return "Hello "+name;
 	}

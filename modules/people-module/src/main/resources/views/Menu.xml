@@ -15,6 +15,7 @@
 		<view type="form"  /><!-- if we don't give name to view it will automatically get that particular view {yet to know how} -->
 		<view-param name="search-filters" value="filter-names"/>
 		<context name="_entry" expr="eval: 'kotak mahindra bank'"/>
+		<context name="json-enhance" expr="true"/>
 	</action-view>
 	
 	<menuitem title="People Test" name="people-root-people-test" parent="people-root" action="action.people.root.people.test" icon="fa-user" icon-background="green" order="0"
@@ -30,8 +31,8 @@
 		<view-param name="showArchived" value="false"/>
 		<view-param name="details-view" value="true"/><!-- it display grid and form views side by side -->
 		<view-param name="limit" value="3"/><!-- grid view display data limit -->
-		<view-param name="popup" value="true"/><!-- QUERY -->
-		<view-param name="popup-save" value="true"/><!-- QUERY -->
+		<view-param name="popup" value="true"/>
+		<view-param name="popup-save" value="true"/>
 		<!-- <view-param name="search-filters" value="filter-names"/> -->
 		
 	</action-view>

@@ -5,13 +5,15 @@
 	
 	<grid model="com.axelor.people.db.Cover" title="Covers" name="cover_grid">
 		<field name="name" />
-		<field name="coverSet" />	
+		<field name="price"/>
+		<field name="mobileSet" />	
 	</grid>
 	<form model="com.axelor.people.db.Cover" title="Cover" name="cover_form">
 		<panel name="mainPanel" title="Main Panel">
 			<field name="name"/>
+			<field name="price"/>
 			<field name="defaultValue" />
-			<panel-related field="coverSet" colSpan="25" />
+			<panel-related field="mobileSet" colSpan="25" hideIf="$popup()" />
 		</panel>	
 	</form>
 		
