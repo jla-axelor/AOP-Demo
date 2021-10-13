@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 import com.axelor.inject.Beans;
+import com.axelor.meta.CallMethod;
 import com.axelor.meta.schema.actions.ActionView;
 import com.axelor.meta.schema.actions.ActionView.ActionViewBuilder;
 import com.axelor.people.db.Cloths;
@@ -48,5 +49,9 @@ public class PeopleController {
 		res.setView("Mobile","com.axelor.people.db.Mobile","grid","self.mobileQuality = '2' ");
 //		Here last one is domain filter
 	}
-	
+	@CallMethod
+	public String greet(String name) {
+		System.err.println(name);
+		return "Hello "+name;
+	}
 }

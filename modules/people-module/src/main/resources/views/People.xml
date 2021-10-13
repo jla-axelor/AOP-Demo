@@ -151,7 +151,8 @@
 	</search-filters>
 	
 	<action-method name="action-people-people-method-demo">
-		<call class="com.axelor.people.web.PeopleController" method="cheking"/>
+		<!-- <call class="com.axelor.people.web.PeopleController" method="cheking"/> -->
+		<call class="com.axelor.people.web.PeopleController" method="greet(peopleName)"/>
 	</action-method>
 	
 </object-views>  
