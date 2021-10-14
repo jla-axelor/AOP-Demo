@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 	
-	<menuitem title="Demo Menu" name="people-root" icon="fa-users" icon-background="bluegrey" order="-111" top="true" tag="Demo" />
+	<menuitem title="Demo Menu" name="people-root" icon="fa-users" icon-background="bluegrey" order="-112" top="true" tag="Demo" />
 	<!-- with the help of order we can change the displaying order -->
 	
 	<menuitem title="People" name="people-root-people" parent="people-root" action="action.people.root.people" icon="fa-user" icon-background="green" order="0"
@@ -44,13 +44,13 @@
 	<menuitem title="People3" name="people-root-people3" parent="people-root-top" icon="fa-users" action="action.people.root.people" icon-background="red" top="true" left="false"/>
 	<!-- using this top =true and left=false This menu will appear in top -->
 	
-	<menuitem title="Mobile Phone" name="people-root-mobile" parent="people-root" action="action.people.root.mobile" order="2" icon="fa-mobile" icon-background="cyan" tag-count="true" tag-style="default" top="true"/>
+	<!-- <menuitem title="Mobile Phone" name="people-root-mobile" parent="people-root" action="action.people.root.mobile" order="2" icon="fa-mobile" icon-background="cyan" tag-count="true" tag-style="default" top="true"/>
 	<action-view name="action.people.root.mobile" title="Mobile Phone" model="com.axelor.people.db.Mobile">
 		<view type="grid" name="mobile_grid" />
 		<view type="form" name="mobile_form" />
-		<view-param name="reload-dotted" value="true"/>	<!-- QUERY -->
-		<context name="_showSingle" expr="eval: true"/><!-- Not Working -->
-	</action-view> 
+		<view-param name="reload-dotted" value="true"/>	QUERY
+		<context name="_showSingle" expr="eval: true"/>Not Working
+	</action-view> --> 
 	
 	<menuitem title="Cloths" name="people-root-cloths" parent="people-root" action="action.people.root.cloths" order="3" icon="fa-shirt" icon-background="green" tag-count="true" tag-style="inverse" top="true" />
 	<action-view name="action.people.root.cloths" title="Cloths from Action" model="com.axelor.people.db.Cloths" >
@@ -67,16 +67,18 @@
 		<!-- <context name="_showRecord" expr="eval: 2"/>It will display particular ID record  -->
 	</action-view>
 	
-	<menuitem title="Project" name="people-root-project" parent="people-root" action="action.people.root.project" order="4" tag-count="true" tag-style="info" top="true"/>
+	<menuitem title="Project Part" name="people-project" parent="people-root" order="20"/>
+	
+	<menuitem title="Project" name="people-root-project" parent="people-project" action="action.people.root.project" order="4" tag-count="true" tag-style="info" top="true"/>
 	<action-view name="action.people.root.project" title="Project" model="com.axelor.people.db.Project">
 		<view type="kanban" name="project-kanban" />
 		<view type="form" name="project-form" />
 	</action-view>
 	
-	<menuitem title="Cover" name="people-root-cover" parent="people-root" action="action.people.root.cover" />
+	<!-- <menuitem title="Cover" name="people-root-cover" parent="people-root" action="action.people.root.cover" />
 	<action-view name="action.people.root.cover" title="Cover" model="com.axelor.people.db.Cover">
 		<view type="grid" name="cover_grid"/>
 		<view type="form" name="cover_form"/>
-	</action-view>
+	</action-view> -->
 	
 </object-views>

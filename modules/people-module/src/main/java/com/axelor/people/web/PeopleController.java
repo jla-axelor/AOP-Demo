@@ -5,17 +5,12 @@ import java.time.LocalTime;
 
 import com.axelor.inject.Beans;
 import com.axelor.meta.CallMethod;
-import com.axelor.meta.schema.actions.ActionView;
-import com.axelor.meta.schema.actions.ActionView.ActionViewBuilder;
-import com.axelor.people.db.Cloths;
 import com.axelor.people.db.People;
 import com.axelor.people.db.repo.PeopleRepository;
 import com.axelor.people.service.PeopleService;
 import com.axelor.rpc.ActionRequest;
 import com.axelor.rpc.ActionResponse;
 import com.axelor.rpc.Context;
-
-import net.minidev.json.writer.BeansMapper.Bean;
 
 public class PeopleController {
 	public void cheking(ActionRequest req , ActionResponse res) {

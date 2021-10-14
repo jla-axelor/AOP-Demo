@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+	
+	<menuitem title="Mobile Demo" name="demo-mobile" order="-111" />
+	
+	<menuitem title="Mobile Phone" name="demo-mobile-mobile" parent="demo-mobile" action="action.demo.mobile.root.mobile" icon="fa-mobile" icon-background="cyan" tag-count="true" tag-style="default" top="true"/>
+	<action-view name="action.demo.mobile.root.mobile" title="Mobile Phone" model="com.axelor.mobile.db.Mobile">
+		<view type="grid" name="mobile_grid" />
+		<view type="form" name="mobile_form" />
+		<!-- <view-param name="reload-dotted" value="true"/>	QUERY
+		<context name="_showSingle" expr="eval: true"/>Not Working -->
+	</action-view>
+	
+	<menuitem title="Cover" name="demo-mobile-cover" parent="demo-mobile" action="action.demo.mobile.root.cover" order="2" />
+	<action-view name="action.demo.mobile.root.cover" title="Cover" model="com.axelor.mobile.db.Cover">
+		<view type="grid" name="cover_grid"/>
+		<view type="form" name="cover_form"/>
+	</action-view>
+	
+</object-views>

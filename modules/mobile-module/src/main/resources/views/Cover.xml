@@ -3,12 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 	
-	<grid model="com.axelor.people.db.Cover" title="Covers" name="cover_grid">
+	<grid model="com.axelor.mobile.db.Cover" title="Covers" name="cover_grid" >
 		<field name="name" />
 		<field name="price"/>
-		<field name="mobileSet" />	
 	</grid>
-	<form model="com.axelor.people.db.Cover" title="Cover" name="cover_form">
+	<form model="com.axelor.mobile.db.Cover" title="Cover" name="cover_form">
 		<panel name="mainPanel" title="Main Panel">
 			<field name="name"/>
 			<field name="price"/>

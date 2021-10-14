@@ -1,3 +1,4 @@
 rootProject.name = 'AOP-Demo'
 
 include 'modules:people-module'
+include 'modules:mobile-module'

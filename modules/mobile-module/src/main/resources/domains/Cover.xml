@@ -3,12 +3,12 @@
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
 		
-		<module package="com.axelor.people.db" name="Cover"/>
+		<module package="com.axelor.mobile.db" name="Cover"/>
 		<entity name="Cover" lang="java">
 			<string name="name" />
 			<integer name="price" />
 			<integer name="defaultValue" default="25" />
-			<many-to-many ref="com.axelor.people.db.Mobile" name="mobileSet"/>
+			<many-to-many ref="com.axelor.mobile.db.Mobile" name="mobileSet"/>
 		</entity>
 
 </domain-models>

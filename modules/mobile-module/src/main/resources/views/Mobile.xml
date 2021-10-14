@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 	
-	<grid model="com.axelor.people.db.Mobile" title="Mobile Phones" name="mobile_grid">
+	<grid model="com.axelor.mobile.db.Mobile" title="Mobile Phones" name="mobile_grid">
 		<field name="fullName" />
 		<field name="image" />
 		<field name="random" />
@@ -11,9 +11,10 @@
 		<field name="coverset"/>
 		
 	</grid>
-	<form model="com.axelor.people.db.Mobile" title="Mobile Phone" name="mobile_form" onSave="peopel-mobile-codition-demo,people-mobile-greet-name">
+	<form model="com.axelor.mobile.db.Mobile" title="Mobile Phone" name="mobile_form" onSave="peopel-mobile-codition-demo">
 		<panel-stack>
 		<panel name="stackPanle1" title="Stack Panel 1">
+			<field name="people" title="Owner" colSpan="12" />
 			<field name="name" />
 			<field name="price" />
 			<field name="fullName" />
@@ -24,8 +25,8 @@
 			<field name="random" />
 			
 			<field name="$dummyDemo" type="boolean" title="Dummy Field Demo" readonly="true"/>
-			<!-- This is dummy field that i haven't created in domain and $ sign means it wont create our form dirty (means after performing action form is in not went in unsaved mode)-->
-			<field name="dummy2" type="one-to-many" target="com.axelor.people.db.Cloths" colSpan="12" title="Dummy demo 2" />
+			<!-- This is dummy field that i haven't created in domain and $ sign means it wont create our form dirty (means after performing action form is in not went in unsaved mode) -->
+			<!-- <field name="dummy2" type="one-to-many" target="com.axelor.people.db.Cloths" colSpan="12" title="Dummy demo 2" /> -->
 		</panel>
 		<panel name="stakePanel3" title="Stake Panel 3">
 			<field name="mobileQuality" title="Mobile Quality" widget="RadioSelect" x-direction="vertical" onChange="people-mobile-actionAttrs-demo"/>
@@ -37,11 +38,11 @@
 		</panel>
 	</form>
 	
-	<!-- with the help of action group we can perform more action at a time  -->
-	<!-- <action-record name="action-people-monile-onsave" model="com.axelor.people.db.Mobile">
+	<!-- with the help of action group we can perform more action at a time --> 
+	<action-record name="action-people-monile-onsave" model="com.axelor.mobile.db.Mobile">
 		<field name="random" expr="eval:'1211'"/> 
-	</action-record> -->
-	<action-record name="action-people-mobile-fill-dummy" model="com.axelor.people.db.Mobile">
+	</action-record>
+	<action-record name="action-people-mobile-fill-dummy" model="com.axelor.mobile.db.Mobile">
 		<field name="$dummyDemo" expr="eval: true"/>
 	</action-record>	
 	
@@ -51,8 +52,8 @@
 		<attribute name="collapse" for="stackPanle1" expr="eval: mobileQuality == 'new'"/>
 		<attribute name="hidden" for="dummy2" expr="eval: mobileQuality == 'new'"/>
 		<attribute name="title" for="panel2" expr="eval: mobileQuality == 'new'? 'change title' : 'Panel 2'"/>
-		<!-- <attribute name="" for="coverset" expr=""/> -->
-		<!-- <attribute name="title" for="panel2" expr="eval: mobileQuality == 'new'? &quot; change title &quot; : 'Panel 2'"/> --><!-- we can use " as &quot; and >= is used as &gt;= -->
+		<attribute name="" for="coverset" expr=""/>
+		<attribute name="title" for="panel2" expr="eval: mobileQuality == 'new'? &quot; change title &quot; : 'Panel 2'"/><!-- we can use " as &quot; and >= is used as &gt;= -->
 		<attribute name="css" for="panel2" expr="eval: 'panel-green'" if="mobileQuality == 'new'"/><!-- not working -->
 	</action-attrs>
 	
@@ -60,7 +61,7 @@
 		<check field="price" if="price &lt;= 0" error="Please Enter valid price"/>
 	</action-condition>
 	
-	<action-method name="people-mobile-greet-name">
+	<!-- <action-method name="people-mobile-greet-name">
 		<call class="com.axelor.people.web.MobileController" method="greet"/>
-	</action-method>
+	</action-method> -->
 </object-views>

@@ -38,6 +38,7 @@ allprojects {
 dependencies {
   // add dependencies
   implementation project(":modules:people-module")
+  implementation project(":modules:mobile-module")
 }
 war {
   archiveFileName = 'AOP-demo.war'
