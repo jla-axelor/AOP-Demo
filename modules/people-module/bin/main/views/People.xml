@@ -6,7 +6,7 @@
 	<grid model="com.axelor.people.db.People" title="Peoples" name="people-grid"  >
 		
 		<field name="refrence"/>
-		<field name="peopleName"  />
+		<field name="peopleName" />
 		<field name="mobile"/>
 		<field name="bankBalance"/>
 		<field name="bankName"/>

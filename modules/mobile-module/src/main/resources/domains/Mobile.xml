@@ -13,6 +13,8 @@
 				]]>
 			</string>
 			<string name="random" title="Randome somethig" />
+			<date name="startDate" />
+			<date name="stopDate" />
 			<many-to-one ref="com.axelor.meta.db.MetaFile" name="image" title="Image" />
 			<many-to-one ref="com.axelor.people.db.People" name="people" />
 			<many-to-many ref="com.axelor.mobile.db.Cover" name="coverset" mappedBy="mobileSet" />

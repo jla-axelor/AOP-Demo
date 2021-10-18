@@ -7,6 +7,21 @@
 		<field name="name" />
 		<field name="price"/>
 	</grid>
+	
+	<tree name="mobile_tree" title="Covers">
+		<column name="title" type="string"/>
+		<column name="coverPrice" type="integer"/>
+		<!-- 1st level node -->
+		<node model="com.axelor.mobile.db.Mobile">
+			<field name="name" as="title"/>
+		</node>
+		<!-- 2nd level node(inner) -->
+		<node model="com.axelor.mobile.db.Cover" parent="mobileSet" draggable="true" onClick="mobile-cover-one-click" >
+			<field name="name" as="title"/>
+			<field name="price" as="coverPrice"/>
+		</node>
+	</tree>
+	
 	<form model="com.axelor.mobile.db.Cover" title="Cover" name="cover_form">
 		<panel name="mainPanel" title="Main Panel">
 			<field name="name"/>
@@ -15,5 +30,12 @@
 			<panel-related field="mobileSet" colSpan="25" hideIf="$popup()" />
 		</panel>	
 	</form>
-		
+	
+	<action-view name="mobile-cover-one-click" title="Cover" model="com.axelor.mobile.db.Cover">
+		<view type="grid" name="cover_grid"/>
+		<view type="form" name="cover_form"/>
+		 <domain>self.id = :cover_id</domain>
+   		 <context name="cover_id" expr="eval: id"/>
+   		 <context name="_showSingle" expr="true"/><!-- only display form record -->
+	</action-view>
 </object-views>

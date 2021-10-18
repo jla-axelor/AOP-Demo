@@ -11,10 +11,19 @@
 		<field name="coverset"/>
 		
 	</grid>
-	<form model="com.axelor.mobile.db.Mobile" title="Mobile Phone" name="mobile_form" onSave="peopel-mobile-codition-demo">
+	
+	<calendar name="mobile_calender" model="com.axelor.mobile.db.Mobile"
+	 eventStart="startDate" eventStop="stopDate" 
+	 eventLength="1" mode="week" onChange="action-mobile-date-validation"
+	 title="Use calander">
+	 	<field name="name"/>
+	 </calendar><!-- eventLength 1 means if stopDate not given the default it is 1 hour -->
+		
+	<form model="com.axelor.mobile.db.Mobile" title="Mobile Phone" name="mobile_form" onSave="peopel-mobile-codition-demo"
+		  onNew="mobile-auto-date-fill">
 		<panel-stack>
 		<panel name="stackPanle1" title="Stack Panel 1">
-			<field name="people" title="Owner" colSpan="12" />
+			<field name="people" title="Owner" colSpan="12"/>
 			<field name="name" />
 			<field name="price" />
 			<field name="fullName" />
@@ -35,9 +44,13 @@
 		</panel-stack>
 		<panel sidebar="true" name="panel2" title="side Panel" stacked="true">
 			<button onClick="action-people-mobile-fill-dummy" name="checkDummy" title="Check Dummy Field"/>
+			<field name="startDate" />
+			<field name="stopDate" validIf="$moment(stopDate) > $moment(startDate)" />
 		</panel>
 	</form>
-	
+	<action-record name="mobile-auto-date-fill" model="com.axelor.mobile.db.Mobile">
+		<field name="startDate" expr="eval: __date__"/>
+	</action-record>
 	<!-- with the help of action group we can perform more action at a time --> 
 	<action-record name="action-people-monile-onsave" model="com.axelor.mobile.db.Mobile">
 		<field name="random" expr="eval:'1211'"/> 
@@ -60,6 +73,7 @@
 	<action-condition name="peopel-mobile-codition-demo">
 		<check field="price" if="price &lt;= 0" error="Please Enter valid price"/>
 	</action-condition>
+	
 	
 	<!-- <action-method name="people-mobile-greet-name">
 		<call class="com.axelor.people.web.MobileController" method="greet"/>
