@@ -6,28 +6,32 @@
 	<grid model="com.axelor.mobile.db.Cover" title="Covers" name="cover_grid" >
 		<field name="name" />
 		<field name="price"/>
+		<field name="coverCall" title="Covers List" />
 	</grid>
 	
 	<tree name="mobile_tree" title="Covers">
 		<column name="title" type="string"/>
-		<column name="coverPrice" type="integer"/>
+		<!-- <column name="coverPrice" type="integer"/> -->
 		<!-- 1st level node -->
-		<node model="com.axelor.mobile.db.Mobile">
+<!-- 		<node model="com.axelor.mobile.db.Mobile"> -->
+<!-- 			<field name="name" as="title"/> -->
+<!-- 		</node> -->
+		<!-- 2nd level node(inner) -->
+		<node model="com.axelor.mobile.db.Cover" draggable="true" onClick="mobile-cover-one-click" ><!--enter parent name is field name -->
 			<field name="name" as="title"/>
 		</node>
-		<!-- 2nd level node(inner) -->
-		<node model="com.axelor.mobile.db.Cover" parent="mobileSet" draggable="true" onClick="mobile-cover-one-click" >
+		<node model="com.axelor.mobile.db.CoverCollection" parent="coverList" >
 			<field name="name" as="title"/>
-			<field name="price" as="coverPrice"/>
 		</node>
 	</tree>
 	
-	<form model="com.axelor.mobile.db.Cover" title="Cover" name="cover_form">
+	<form model="com.axelor.mobile.db.Cover" title="Cover" name="cover_form" css="panel-red" >
 		<panel name="mainPanel" title="Main Panel">
 			<field name="name"/>
 			<field name="price"/>
 			<field name="defaultValue" />
-			<panel-related field="mobileSet" colSpan="25" hideIf="$popup()" />
+			<field name="coverCall" title="Covers List" />
+			<panel-related field="mobileSet" colSpan="12" hideIf="$popup()" />
 		</panel>	
 	</form>
 	

@@ -10,15 +10,28 @@
 		<view type="grid" name="mobile_grid" />
 		<view type="form" name="mobile_form" />
 		<view type="calendar" name="mobile_calender"/>
+		<context name="json-enhance" expr="true"/>
 		<!-- <view-param name="reload-dotted" value="true"/>	QUERY
 		<context name="_showSingle" expr="eval: true"/>Not Working -->
 	</action-view>
 	
-	<menuitem title="Cover" name="demo-mobile-cover" parent="demo-mobile" action="action.demo.mobile.root.cover" order="2" />
-	<action-view name="action.demo.mobile.root.cover" title="Cover" model="com.axelor.mobile.db.Cover">
+	<menuitem title="Cover(Tree)" name="demo-mobile-cover-tree" parent="demo-mobile" action="action.demo.mobile.root.cover.tree" order="2" />
+	<action-view name="action.demo.mobile.root.cover.tree" title="Cover" model="com.axelor.mobile.db.Cover">
 		<view type="tree" name="mobile_tree"/>
 		<!-- <view type="grid" name="cover_grid"/>
 		<view type="form" name="cover_form"/> -->
+	</action-view>
+	
+	<menuitem title="Cover" name="demo-mobile-cover" parent="demo-mobile" action="action.demo.mobile.root.cover" order="3" />
+	<action-view name="action.demo.mobile.root.cover" title="Cover" model="com.axelor.mobile.db.Cover">
+		<view type="grid" name="cover_grid"/>
+		<view type="form" name="cover_form"/>
+	</action-view>
+	
+	<menuitem title="Covers List" name="mobile-demo-covers-list" parent="demo-mobile" action="action-dome-mobile-covers-list" order="4"/>
+	<action-view name="action-dome-mobile-covers-list" title="Covers List" model="com.axelor.mobile.db.CoverCollection">
+		<view type="grid" name="covers_grid"/>
+		<view type="form" name="covers_form"/>
 	</action-view>
 	
 </object-views>

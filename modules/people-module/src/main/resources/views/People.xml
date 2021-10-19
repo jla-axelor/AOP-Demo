@@ -17,13 +17,8 @@
 		<field name="dateTimeDemo"/>
 		<field name="image" />
 		<field name="rateMyForm"/> 
-		<field name="clothsList">
-			
-			<grid title="Cloths">
-				<field name="name"/>
-				<field name="type" />
-			</grid>
-		</field>
+		<!-- <field name="clothsList.name" /> -->
+		<field name="cloth" />
 	</grid>
 	
 	<cards name="people-cards" model="com.axelor.people.db.People" title="Peoples" width="300px">
@@ -42,8 +37,9 @@
    					<strong>{{mobile}}</strong>
    					<!-- {{clothsList[0].name}} -->
    					<clothsList>
-   						<strong>{{clothsList.name}}</strong>
+   						<strong>{{clothsList}}</strong>
    					</clothsList>
+   					<strong>{{cloth}}</strong>
 				</div>
 			]]>
 		</template>

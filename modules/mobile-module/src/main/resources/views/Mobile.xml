@@ -8,13 +8,13 @@
 		<field name="image" />
 		<field name="random" />
 		<field name="mobileQuality" />
-		<field name="coverset"/>
+		<field name="coverset" hidden="true" />
 		
 	</grid>
 	
 	<calendar name="mobile_calender" model="com.axelor.mobile.db.Mobile"
 	 eventStart="startDate" eventStop="stopDate" 
-	 eventLength="1" mode="week" onChange="action-mobile-date-validation"
+	 eventLength="1" mode="week" 
 	 title="Use calander">
 	 	<field name="name"/>
 	 </calendar><!-- eventLength 1 means if stopDate not given the default it is 1 hour -->
@@ -43,7 +43,7 @@
 		</panel>
 		</panel-stack>
 		<panel sidebar="true" name="panel2" title="side Panel" stacked="true">
-			<button onClick="action-people-mobile-fill-dummy" name="checkDummy" title="Check Dummy Field"/>
+			<button onClick="action-mobile-fill-dummy" name="checkDummy" title="Check Dummy Field"/>
 			<field name="startDate" />
 			<field name="stopDate" validIf="$moment(stopDate) > $moment(startDate)" />
 		</panel>
@@ -55,7 +55,7 @@
 	<action-record name="action-people-monile-onsave" model="com.axelor.mobile.db.Mobile">
 		<field name="random" expr="eval:'1211'"/> 
 	</action-record>
-	<action-record name="action-people-mobile-fill-dummy" model="com.axelor.mobile.db.Mobile">
+	<action-record name="action-mobile-fill-dummy" model="com.axelor.mobile.db.Mobile">
 		<field name="$dummyDemo" expr="eval: true"/>
 	</action-record>	
 	

@@ -26,10 +26,10 @@
 		<button onClick="click" prompt="Are you sure ?"  name="clickBtn" title="click Here" icon="fa-print" />
 		
 	</grid>
-	<form model="com.axelor.people.db.Cloths" title="Cloths" name="cloths_form" onLoad="action-mobile-validate-onload" canAttach="true" onNew="people-cloths-acton-record-onenew-demo">
+	<form model="com.axelor.people.db.Cloths" title="Cloths" name="cloths_form" onLoad="action-mobile-validate-onload" canAttach="true" onNew="people-cloths-acton-record-onenew-demo" css="panel-blue">
 		<!-- Included panel -->
-		<panel-include view="people_cloths_form"/>
-		<panel name="mainPanel" title="Main Panel">
+		<panel-include view="people_cloths_form" />
+		<panel name="mainPanel" title="Main Panel" >
 			<!-- <field name="people"  target-name="bankName" /> --><!-- hideIf="$popup()" :- we can use this attribute to hide people field in people view popup  -->
 														  <!-- with the help of target-name we can change nameColumn so now its display bank name instead of people name -->		
 			<field name="people" /> <!-- domain="self.haveHouse = true" <-with the help of this we can get people with have house is true  -->
@@ -44,9 +44,9 @@
 	</action-validate>
 	<!-- This form is used in people cloths new button -->
 	<form model="com.axelor.people.db.Cloths" title="People Cloths form" name="people_cloths_form">
-		<panel name="innerPanel" title="Included Panel">
+		<panel name="innerPanel" title="Included Panel" >
 			<field name="name" />
-			<field name="type" />
+			<field name="type" widget="NavSelect" />
 			<field name="cprice" />
 		</panel>
 	</form>
