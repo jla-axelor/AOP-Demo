@@ -11,16 +11,16 @@
 	
 	<tree name="mobile_tree" title="Covers">
 		<column name="title" type="string"/>
-		<!-- <column name="coverPrice" type="integer"/> -->
+		<!--  <column name="coverPrice" type="integer"/> -->
 		<!-- 1st level node -->
 <!-- 		<node model="com.axelor.mobile.db.Mobile"> -->
 <!-- 			<field name="name" as="title"/> -->
-<!-- 		</node> -->
+<!-- 		</node>  -->
 		<!-- 2nd level node(inner) -->
-		<node model="com.axelor.mobile.db.Cover" draggable="true" onClick="mobile-cover-one-click" ><!--enter parent name is field name -->
+		<node model="com.axelor.mobile.db.CoverCollection">
 			<field name="name" as="title"/>
 		</node>
-		<node model="com.axelor.mobile.db.CoverCollection" parent="coverList" >
+		<node model="com.axelor.mobile.db.Cover" parent="coverCall" draggable="true" onClick="mobile-cover-one-click" ><!--enter parent name is field name -->
 			<field name="name" as="title"/>
 		</node>
 	</tree>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+	<chart name="price.per.month" title="Cover Chart">
+		<dataset type="jpql">
+			<![CDATA[
+				SELECT 
+					self.name AS name,
+					self.price AS price
+				FROM
+					Cover self
+			]]>
+		</dataset>
+		<category key="name" type="text"/>
+		<series key="price" type="bar"/>
+	</chart>
+	
+	<chart name="people.per.mobile" title="People per Mobile">
+		<dataset type="jpql">
+			<![CDATA[
+				SELECT 
+					COUNT(self.name) AS mobile,
+					_people.peopleName AS people
+				FROM
+					Mobile self
+				LEFT JOIN
+					self.people _people
+				WHERE
+					self.people IS NOT NULL
+				GROUP BY
+					self.name,
+					_people.peopleName
+			]]>
+		</dataset>
+		<category key="people" type="text"/>
+		<series key="mobile" type="pie"/>
+	</chart>
+
+	<dashboard name="title" title="dashbord">
+		<dashlet action="chart:price.per.month"/>
+		<dashlet action="chart:people.per.mobile"/>
+		<dashlet action="grid:cover-grid" colSpan="12" />
+	</dashboard>
+</object-views>

@@ -28,10 +28,16 @@
 		<view type="form" name="cover_form"/>
 	</action-view>
 	
+		
 	<menuitem title="Covers List" name="mobile-demo-covers-list" parent="demo-mobile" action="action-dome-mobile-covers-list" order="4"/>
 	<action-view name="action-dome-mobile-covers-list" title="Covers List" model="com.axelor.mobile.db.CoverCollection">
 		<view type="grid" name="covers_grid"/>
 		<view type="form" name="covers_form"/>
+	</action-view>
+	
+	<menuitem title="Charts" name="mobile-demo-chart" parent="demo-mobile" action="action-demo-mobile-chart" order="5" />
+	<action-view name="action-demo-mobile-chart" title="Chart Demo">
+		<view type="dashboard" name="title"/>
 	</action-view>
 	
 </object-views>
