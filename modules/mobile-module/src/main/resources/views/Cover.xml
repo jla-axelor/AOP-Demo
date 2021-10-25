@@ -6,7 +6,7 @@
 	<grid model="com.axelor.mobile.db.Cover" title="Covers" name="cover_grid" >
 		<field name="name" />
 		<field name="price"/>
-		<field name="coverCall" title="Covers List" />
+		<field name="coverCall" title="Covers Collection" />
 	</grid>
 	
 	<tree name="mobile_tree" title="Covers">
@@ -23,14 +23,17 @@
 		<node model="com.axelor.mobile.db.Cover" parent="coverCall" draggable="true" onClick="mobile-cover-one-click" ><!--enter parent name is field name -->
 			<field name="name" as="title"/>
 		</node>
-	</tree>
-	
+		<node model="com.axelor.mobile.db.Mobile" parent="coverset">
+			<field name="name" as="title"/>
+		</node> 
+	</tree>	
+
 	<form model="com.axelor.mobile.db.Cover" title="Cover" name="cover_form" css="panel-red" >
 		<panel name="mainPanel" title="Main Panel">
 			<field name="name"/>
 			<field name="price"/>
 			<field name="defaultValue" />
-			<field name="coverCall" title="Covers List" />
+			<field name="coverCall" title="Covers Collection" hideIf="$popup()"/>
 			<panel-related field="mobileSet" colSpan="12" hideIf="$popup()" />
 		</panel>	
 	</form>

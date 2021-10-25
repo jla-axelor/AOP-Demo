@@ -2,21 +2,26 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-	<chart name="price.per.month" title="Cover Chart">
+	<chart name="price.per.month" title="Cover Chart" stacked="true">
 		<dataset type="jpql">
 			<![CDATA[
 				SELECT 
 					self.name AS name,
-					self.price AS price
+					self.price AS price,
+					_mobile.name AS mobile
 				FROM
 					Cover self
+				LEFT JOIN
+					self.mobileSet _mobile
 			]]>
 		</dataset>
 		<category key="name" type="text"/>
-		<series key="price" type="bar"/>
+		<series key="price" groupBy="mobile" type="bar"/>
+		<config name="width" value="300"/>
+		<config name="onClick" value="action.demo.mobile.root.cover"/>
 	</chart>
 	
-	<chart name="people.per.mobile" title="People per Mobile">
+	<chart name="people.per.mobile" title="People per Mobile" stacked="true">
 		<dataset type="jpql">
 			<![CDATA[
 				SELECT 
@@ -29,17 +34,59 @@
 				WHERE
 					self.people IS NOT NULL
 				GROUP BY
-					self.name,
 					_people.peopleName
 			]]>
 		</dataset>
 		<category key="people" type="text"/>
 		<series key="mobile" type="pie"/>
+		<config name="percent" value="true"/>
 	</chart>
-
+		
+	<chart name="people.per.mobile.perice" title="People per mobile price" stacked="true" >
+		<dataset type="jpql">
+			<![CDATA[
+				SELECT 
+					self.price AS price , _people.peopleName AS people, self.name AS name
+				FROM
+					Mobile self
+				LEFT JOIN
+					self.people _people 
+				GROUP BY
+					self.name,
+					self.price,
+					_people.peopleName
+				ORDER BY
+					people
+			]]>
+		</dataset>
+		<category key="name" type="text" title="Mobile" />
+		<series key="price" type="bar" groupBy="people" title="Price"/>
+		<config name="" value=""/>
+	</chart>
+	
+	<chart name="mobile.per.cover" title="Mobile per Cover">
+		<dataset type="jpql">
+			<![CDATA[
+				SELECT
+					_cover.price AS price , _cover.name AS cover , self.name AS name
+				FROM
+					Mobile self
+				LEFT JOIN
+					self.coverset AS _cover
+				ORDER BY
+					self.name,self.price,_cover.name
+			]]>
+		</dataset>
+		<category key="name" type="text"/>
+		<series key="price" type="bar" groupBy="cover"/>
+		<config name="colors" value="red,green,blue,grey"/>
+	</chart>
+	
 	<dashboard name="title" title="dashbord">
 		<dashlet action="chart:price.per.month"/>
 		<dashlet action="chart:people.per.mobile"/>
-		<dashlet action="grid:cover-grid" colSpan="12" />
+		<dashlet action="chart:people.per.mobile.perice"/>
+		<dashlet action="chart:mobile.per.cover"/>		
+		<dashlet action="grid:cover_grid" colSpan="12" />
 	</dashboard>
 </object-views>

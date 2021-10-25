@@ -29,8 +29,8 @@
 	</action-view>
 	
 		
-	<menuitem title="Covers List" name="mobile-demo-covers-list" parent="demo-mobile" action="action-dome-mobile-covers-list" order="4"/>
-	<action-view name="action-dome-mobile-covers-list" title="Covers List" model="com.axelor.mobile.db.CoverCollection">
+	<menuitem title="Covers Collection" name="mobile-demo-covers-list" parent="demo-mobile" action="action-dome-mobile-covers-list" order="4"/>
+	<action-view name="action-dome-mobile-covers-list" title="Covers Collection" model="com.axelor.mobile.db.CoverCollection">
 		<view type="grid" name="covers_grid"/>
 		<view type="form" name="covers_form"/>
 	</action-view>
