@@ -73,4 +73,10 @@
 		<view type="form" name="cover_form"/>
 	</action-view> -->
 	
+	<menuitem title="Title" name="title-root" action="action.title.root" />
+	<action-view name="action.title.root" title="Title" model="com.axelor.people.db.Title">
+		<view type="grid"/>
+		<view type="form"/>
+	</action-view>
+	
 </object-views>
