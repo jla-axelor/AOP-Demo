@@ -54,7 +54,7 @@
 				<field name="bankBalance"/>
 				<field name="bankName"/>
 			</panel>
-			<panel name="panelTab2" title="Panel Tab 2" onTabSelect="action-people-showpanel2">
+			<panel name="panelTab2" title="Panel Tab 2" >
 				<field name="password"/>
 				<field name="haveHouse" onChange="save,action-people-people-method-demo"/><!-- we will not use save here it's for testing purpose -->
 				<field name="dateOfBirth"/>
@@ -128,10 +128,10 @@
 		<field name="bankName" expr="eval: _entry"/>
 	</action-record>
 
-	<action-record name="action-people-showpanel2" model="com.axelor.people.db.People">
-		<!-- <field name="haveHouse" expr="false"/> -->	
-		<field name="dateOfBirth" expr="eval: __date__" if= "dateOfBirth==null"/><!-- If dateOfBirth is null then it will fill the current date  -->	
-	</action-record>
+<!--	<action-record name="action-people-showpanel2" model="com.axelor.people.db.People"> -->
+<!-- 		<field name="haveHouse" expr="false"/> -->
+<!--  		<field name="dateOfBirth" expr="eval: __date__" if= "dateOfBirth==null"/>If dateOfBirth is null then it will fill the current date 	 -->
+<!-- 	</action-record> --> 
 	
 	<action-validate name="action-peopole-validate-password">
 		<info message="Password is Empty" if="password==null" />

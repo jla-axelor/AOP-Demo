@@ -8,4 +8,21 @@
     <bind to="name" column="name" />
   </input>
 	
+  <input file="peoples.csv" type="com.axelor.people.db.People" search="self.peopleName = :peopleName" update="false">
+  
+  		<bind to="mobile" column="mobile" />
+  		<bind to="haveHouse" eval="haveHouse != null ? haveHouse : true"/>
+  		<bind to="clothsList">
+  		<bind to="timeOfEntry" eval="java.time.LocalTime.now()" /><!-- not working -->
+  			<bind to="name" column="name"/>
+  			<bind to="cprice" column="cprice"/>
+  		</bind>	
+  		<bind to="clothsList">
+  			<bind to="name" column="name1"  />
+  			<bind to="cprice" column="cprice1" />
+  		</bind>
+  </input>	
+  
+  <input file="cloths.csv" type="com.axelor.people.db.Cloths" update="false" />
+  
 </csv-inputs>
